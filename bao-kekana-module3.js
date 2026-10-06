@@ -179,3 +179,48 @@ console.log("skills instanceof Array:", skills instanceof Array);
 console.log("skills instanceof Object:", skills instanceof Object);
 console.log("today instanceof Date:", today instanceof Date);
 console.log("today instanceof Object:", today instanceof Object);
+
+//Challenge 6 - Bitwsise Permission System
+const READ = 1;
+const WRITE = 2;
+const Delete = 4;
+const Admin = 8;
+
+// Question 1
+
+let User_Permissions = READ | WRITE;
+console.log("User Permissions:" , User_Permissions);
+
+//Questions 2
+let Admin_Permissions = READ | WRITE | Admin;
+
+console.log("Admin Permissions:", Admin_Permissions);
+
+// Question 3
+
+console.log("Has READ?", User_Permissions & READ) ? "Yes" : "No"
+
+// Question 5
+User_Permissions |= Delete;
+console.log("After granting DELETE:", User_Permissions);
+
+//Question 6
+User_Permissions &= ~ WRITE;
+console.log("After we remove WRITE:", User_Permissions);
+
+// Challenge 7 - Real World Banking Calculator
+ // For the 1st SCenario
+
+ const principal = 25000;
+ const Annual_Rate = 0.075;
+ const Compound_Per_Year = 12;
+ const years = 3;
+
+ const Final_Balance = principal * Math.pow(1 + Annual_Rate/ Compound_Per_Year, Compound_Per_Year * years);
+
+ const Total_Interest = Final_Balance - principal;
+
+const Effective_Annual_Rate = (Math.pow(Final_Balance / principal, 1/years) -1) * 100;
+console.log("Final Balance is R" + Final_Balance);
+console.log("Total Interest: R" + Total_Interest);
+console.log(" Effective Annual Rate is:", Effective_Annual_Rate + "%");
